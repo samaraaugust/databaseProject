@@ -8,6 +8,7 @@ const security = require("./middleware/security");
 app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use(security.extractUserFromJwt);
 
 app.get('/api', (req, res) => {
   res.json({ message: "Hello from server!" });
